@@ -38,7 +38,7 @@ public class PersonalAccountPageTests {
         main.clickPersonalAccountButton();
         PersonalAccountPage personalAccountPage = page(PersonalAccountPage.class);
         personalAccountPage.waitAfterTransition();
-        assertEquals(url(), PERSONAL_ACCOUNT_PAGE_URL);
+        assertEquals("The click-through to the Personal Account was not completed",PERSONAL_ACCOUNT_PAGE_URL, url());
     }
 
     @Test
@@ -49,7 +49,7 @@ public class PersonalAccountPageTests {
         PersonalAccountPage personalAccountPage = page(PersonalAccountPage.class);
         personalAccountPage.waitAfterTransition();
         personalAccountPage.clickTheConstructorButton();
-        assertEquals(url(), MAIN_PAGE_URL);
+        assertEquals("The click-through to the Constructor was not completed" ,MAIN_PAGE_URL, url());
     }
 
     @Test
@@ -60,11 +60,11 @@ public class PersonalAccountPageTests {
         PersonalAccountPage personalAccountPage = page(PersonalAccountPage.class);
         personalAccountPage.waitAfterTransition();
         personalAccountPage.clickTheLogo();
-        assertEquals(url(), MAIN_PAGE_URL);
+        assertEquals("The click-through to the Stellar Burgers logo has not been completed", MAIN_PAGE_URL, url());
     }
 
     @Test
-    @DisplayName("выход по кнопке «Выйти» в личном кабинете")
+    @DisplayName("Выход по кнопке «Выйти» в личном кабинете")
     public void checkTheTransitionAfterLogOut() {
         MainPage main = page(MainPage.class);
         main.clickPersonalAccountButton();
@@ -72,7 +72,6 @@ public class PersonalAccountPageTests {
         personalAccountPage.waitAfterTransition();
         personalAccountPage.clickTheLogOutButton();
         personalAccountPage.waitAfterLogOut();
-        assertEquals(url(), LOGIN_PAGE_URL);
+        assertEquals("The exit by the \"Exit\" button in the personal account has not been completed" ,LOGIN_PAGE_URL, url());
     }
-
 }

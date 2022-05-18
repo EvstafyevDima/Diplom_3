@@ -31,7 +31,7 @@ public class LoginOfUserTests {
         LoginPage login = page(LoginPage.class);
         login.entry(login.EMAIL, login.PASSWORD);
         login.waitAfterEntry();
-        assertEquals(url(), MAIN_PAGE_URL);
+        assertEquals("Invalid URL" ,MAIN_PAGE_URL, url());
     }
 
     @Test
@@ -42,7 +42,7 @@ public class LoginOfUserTests {
         LoginPage login = page(LoginPage.class);
         login.entry(login.EMAIL, login.PASSWORD);
         login.waitAfterEntry();
-        assertEquals(url(), MAIN_PAGE_URL);
+        assertEquals("Invalid URL" ,MAIN_PAGE_URL, url());
     }
 
     @Test
@@ -53,7 +53,7 @@ public class LoginOfUserTests {
         LoginPage login = page(LoginPage.class);
         login.entry(login.EMAIL, login.PASSWORD);
         login.waitAfterEntry();
-        assertEquals(url(), MAIN_PAGE_URL);
+        assertEquals("Invalid URL" ,MAIN_PAGE_URL, url());
     }
 
     @Test
@@ -64,8 +64,7 @@ public class LoginOfUserTests {
         LoginPage login = page(LoginPage.class);
         login.entry(login.EMAIL, login.PASSWORD);
         login.waitAfterEntry();
-        assertEquals(url(), MAIN_PAGE_URL);
+        assertEquals("Invalid URL" ,MAIN_PAGE_URL, url());
     }
-
 }
 

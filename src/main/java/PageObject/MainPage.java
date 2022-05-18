@@ -1,12 +1,11 @@
 package PageObject;
 
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class MainPage {
-
 
     public static final String MAIN_PAGE_URL = "https://stellarburgers.nomoreparties.site/";
 
@@ -58,24 +57,24 @@ public class MainPage {
     @FindBy(how = How.XPATH, using = ".//span[text()='Хрустящие минеральные кольца']")
     private SelenideElement fillingInBasket;
 
-    @Description("Нажать на кнопку войти в аккаунт")
+    @Step("Нажать на кнопку войти в аккаунт")
     public void clickAccountEntryButton() {
         enterButton.click();
     }
 
-    @Description("Нажать на кнопку личный кабинет")
+    @Step("Нажать на кнопку личный кабинет")
     public void clickPersonalAccountButton() {
         personalAccountButton.click();
     }
 
-    @Description("Нажать кнопку Начинки, переместить в корзину и проверить отображение в корзине")
+    @Step("Нажать кнопку Начинки, переместить в корзину и проверить отображение в корзине")
     public boolean сlickFillingMoveAndCheckDisplayInTheBasket() {
         fillingsButton.click();
         fillingForDrop.dragAndDropTo(orderBasket);
         return fillingInBasket.isDisplayed();
     }
 
-    @Description("Листаем список и жмем на Соусы, переместить в корзину и проверить отображение в корзине")
+    @Step("Листаем список и жмем на Соусы, переместить в корзину и проверить отображение в корзине")
     public boolean сlickSaucesMoveAndCheckDisplayInTheBasket() {
         lastIngredient.scrollIntoView(true);
         saucesButton.click();
@@ -83,7 +82,7 @@ public class MainPage {
         return sauceInBasket.isDisplayed();
     }
 
-    @Description("Листаем список и жмем на Булки, переместить в корзину и проверить отображение в корзине")
+    @Step("Листаем список и жмем на Булки, переместить в корзину и проверить отображение в корзине")
     public boolean сlickRollsMoveAndCheckDisplayInTheBasket() {
         lastIngredient.scrollIntoView(true);
         bunsButton.click();

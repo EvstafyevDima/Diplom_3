@@ -1,7 +1,7 @@
 package PageObject;
 
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -12,9 +12,8 @@ public class PasswordRecovery {
     @FindBy(how = How.XPATH, using = ".//a[text()='Войти']")
     private SelenideElement entryButton;
 
-    @Description("Нажать кнопку Войти")
+    @Step("Нажать кнопку Войти")
     public void clickTheEntryButton() {
         entryButton.scrollTo().click();
     }
-
 }

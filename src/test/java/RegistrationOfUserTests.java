@@ -1,7 +1,5 @@
 import PageObject.RegisterPage;
-
 import io.qameta.allure.junit4.DisplayName;
-
 import org.junit.Test;
 
 import static PageObject.LoginPage.LOGIN_PAGE_URL;
@@ -19,7 +17,7 @@ public class RegistrationOfUserTests {
         RegisterPage registerPage = open(REGISTER_PAGE_URL, RegisterPage.class);
         registerPage.registration(registerPage.NAME, registerPage.EMAIL, registerPage.PASSWORD);
         registerPage.waitAfterRegistration();
-        assertEquals(url(), LOGIN_PAGE_URL);
+        assertEquals("The user is not registered" ,LOGIN_PAGE_URL, url());
     }
 
     @Test
@@ -27,7 +25,7 @@ public class RegistrationOfUserTests {
     public void registrationWithPasswordLessThan6Characters() {
         RegisterPage registerPage = open(REGISTER_PAGE_URL, RegisterPage.class);
         registerPage.registration(registerPage.NAME, registerPage.EMAIL, "11111");
-        assertTrue(registerPage.checkIncorrectPasswordSign());
+        assertTrue("Password less than 6 characters" ,registerPage.checkIncorrectPasswordSign());
     }
 }
 

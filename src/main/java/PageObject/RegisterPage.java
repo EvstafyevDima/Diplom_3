@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -27,28 +28,27 @@ public class RegisterPage {
     @FindBy(how = How.XPATH, using = ".//p[text()='Некорректный пароль']")
     private SelenideElement incorrectPasswordSign;
 
-    @Description("Вод имени")
+    @Step("Вод имени")
     public void setName(String name) {
         nameEmailPasswordFields.get(0).setValue(name);
     }
 
-    @Description("Ввод почты")
+    @Step("Ввод почты")
     public void setEmail(String email) {
         nameEmailPasswordFields.get(1).setValue(email);
     }
 
-    @Description("Вод пароля")
+    @Step("Вод пароля")
     public void setPassword(String password) {
         nameEmailPasswordFields.get(2).setValue(password);
     }
 
-
-    @Description("Клик по кнопке регистрация")
+    @Step("Клик по кнопке регистрация")
     public void clickRegistrationButton() {
         registryButton.click();
     }
 
-    @Description("Регистрация")
+    @Step("Регистрация")
     public void registration(String name, String email, String password) {
         setName(name);
         setEmail(email);
@@ -56,20 +56,19 @@ public class RegisterPage {
         clickRegistrationButton();
     }
 
-    @Description("Проверка текста, при некорретном пароле")
+    @Step("Проверка текста, при некорретном пароле")
     public boolean checkIncorrectPasswordSign() {
         return incorrectPasswordSign.isDisplayed();
     }
 
-    @Description("Ожидание пока кнопка регистрации пропадет, после регистрации")
+    @Step("Ожидание пока кнопка регистрации пропадет, после регистрации")
     public void waitAfterRegistration() {
         registryButton.shouldBe(Condition.hidden);
     }
 
-    @Description("Нажать кнопку войти")
+    @Step("Нажать кнопку войти")
     public void clickTheEntryButton() {
         entryButton.scrollTo().click();
     }
-
 }
 
